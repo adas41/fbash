@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faceba$h</title>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+    <script type="text/javascript" src="./js/jQuery.1.9.js" ></script>
+    <script type="text/javascript" src="./js/fb.js" ></script>
+    <script type="text/javascript" src="./js/utility.js" ></script>
+    <script type="text/javascript" src="./js/type.js" ></script>
+    <script type="text/javascript" src="./js/mouse.js" ></script>
+    <script type="text/javascript" src="./js/command.js" ></script>
+
+    <script type="text/javascript">
+
+        var isTerminalActive = false;
+        var cursorPosition = -1;
+
+        var commandHistory = [];
+        var commandIndex = commandHistory.length;
+        var supportedCommands = ['block', 'chat', 'cls', 'exit', 'find', 'help', 'like', 'show', 'unfriend']
+        var clipBoard = "";
+
+
+        var isLoggedIn = false;
+
+        /*$(document).ready(function(){
+           $("#command").bind("mouseup", copyToClipBoard);
+        });
+
+        $(document).ready(function(){
+            $("#command").bind("mousedown", pasteFromClipBoard);
+        });*/
+
+        $(document).ready(function(){
+            $(".close-icon").css({
+                'top': $("#terminal").offset().top + 5,
+                'left': $("#terminal").offset().left + $("#terminal").width() - 10
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="terminal" id="terminal" tabindex="0" >
+        <img src="./img/close_terminal.png" class="close-icon" onclick="hideTerminal()"/>
+        <div class="result" id="result"></div>
+        <div class="user-account" id="user-account" spellcheck="false">adas@facebook: /$</div>
+        <section class="command" id="command" contenteditable="true" tabindex="0" spellcheck="false"></section>
+    </div>
+</body>
+</html>
